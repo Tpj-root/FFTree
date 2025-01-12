@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +11,7 @@
 <body>
   <div id="FamilyChart" class="f3" style="width:100%;height:900px;margin:auto;background-color:rgb(33,33,33);color:#fff;"></div>
   <script type="module">
-    
-    create(data())
+    create(data());
 
     function create(data) {
       const f3Chart = f3.createChart('#FamilyChart', data)
@@ -21,35 +19,34 @@
         .setCardXSpacing(250)
         .setCardYSpacing(150)
         .setOrientationVertical()
-        .setSingleParentEmptyCard(true, {label: 'ADD'})
-    
+        .setSingleParentEmptyCard(true, { label: 'ADD' });
+
       const f3Card = f3Chart.setCard(f3.CardHtml)
-        .setCardDisplay([["first name","last name"],["birthday"]])
+        .setCardDisplay([["first name", "last name"], ["birthday"]])
         .setCardDim({})
         .setMiniTree(true)
         .setStyle('imageRect')
-        .setOnHoverPathToMain()
-    
-      
-      const f3EditTree = f3Chart.editTree()
-        .fixed(true)
-        .setFields(["first name","last name","birthday","avatar"])
-        .setEditFirst(true)
-      
-      f3EditTree.setEdit()
-      
-      f3Card.setOnCardClick((e, d) => {
-        f3EditTree.open(d)
-        if (f3EditTree.isAddingRelative()) return
-        f3Card.onCardClickDefault(e, d)
-      })
-    
-      f3Chart.updateTree({initial: true})
-      f3EditTree.open(f3Chart.getMainDatum())
-    
-      f3Chart.updateTree({initial: true})
+        .setOnHoverPathToMain();
+
+      // Remove or comment out the editTree-related code
+      // const f3EditTree = f3Chart.editTree()
+      //   .fixed(true)
+      //   .setFields(["first name", "last name", "birthday", "avatar"])
+      //   .setEditFirst(true);
+
+      // f3EditTree.setEdit();
+
+      // f3Card.setOnCardClick((e, d) => {
+      //   f3EditTree.open(d);
+      //   if (f3EditTree.isAddingRelative()) return;
+      //   f3Card.onCardClickDefault(e, d);
+      // });
+
+      f3Chart.updateTree({ initial: true });
+      // Optional: Automatically focus on the main datum without editing
+      // f3EditTree.open(f3Chart.getMainDatum());
     }
-    
+
     function data() {
       return [
         {
@@ -210,9 +207,8 @@
             ]
           }
         }
-      ]
+      ];
     }
-
   </script>
 </body>
 </html>
