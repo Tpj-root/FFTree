@@ -4,11 +4,18 @@
 
 
 
+# for local test
+. Modify Firefox Configuration (Temporary Change)
+
+You can also change a Firefox setting to allow local file access:
+
+    In the Firefox address bar, type about:config and press Enter.
+    Search for security.fileuri.strict_origin_policy.
+    Double-click to change its value to false.
+
+
 
 https://unpkg.com/browse/family-chart@0.2.1/dist/
-
-
-
 
 
 Steps to Host on GitHub Pages:
